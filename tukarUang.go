@@ -90,13 +90,13 @@ func main() {
 			var knut = pound * 100
 			fmt.Printf("Jumlah knut yang didapat \t: %d\n", knut)
 
-			var sickle = knut / 29
-			var galleon = sickle / 17
-			var sisa = knut % sickle
+			var galleon = knut / (29 * 17)
+			var sickle = (knut % galleon) / 29
+			var sisa = knut - ((galleon * (29 * 17)) + sickle*29)
 
 			fmt.Printf("Hasil penukaran mendapatkan \t: %d Galleon(s)\n", galleon)
-			fmt.Printf("Sisa ditukar menjadi \t\t: %d Sickle(s)\n", sisa/29)
-			fmt.Printf("Keping knut yang tersisa \t: %d Knut(s)", sisa-(sisa/29))
+			fmt.Printf("Sisa ditukar menjadi \t\t: %d Sickle(s)\n", sickle)
+			fmt.Printf("Keping knut yang tersisa \t: %d Knut(s)", sisa)
 
 			fmt.Print("\nLanjutkan Program? (y/t)")
 			fmt.Scan(&yt)
